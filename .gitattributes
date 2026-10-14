@@ -1,2 +1,3 @@
 # Count notebooks as documentation so the SQL files drive the language stats
 *.ipynb linguist-documentation
+*.sql linguist-detectable
