@@ -67,6 +67,8 @@ Reviews fall by nearly a full star at just 1–3 days late (~3.3), drop to ~2.1 
 
 SQL techniques used: CTEs, window functions (`ROW_NUMBER`, `LAG`, `LEAD`, running totals with `SUM() OVER`), views, conditional aggregation, and multi-table joins.
 
+**All queries are in the [`sql/`](sql/) folder**, organized in the order the analysis runs. The notebooks run these queries and show the results.
+
 ### Data quality issues found and handled
 - **Customer IDs:** `customer_id` is unique per *order*, not per person. All retention analysis uses `customer_unique_id` (96,096 real customers).
 - **Duplicate reviews:** 547 orders had multiple reviews (customers can update reviews). Kept the most recent per order with `ROW_NUMBER`.
@@ -90,4 +92,4 @@ SQL techniques used: CTEs, window functions (`ROW_NUMBER`, `LAG`, `LEAD`, runnin
 1. Download the [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) from Kaggle
 2. Place the CSV files in a `data/` folder in the project root
 3. Install dependencies: `pip install duckdb pandas matplotlib`
-4. Run `01_setup_and_data_quality.ipynb`, then `02_analysis.ipynb`
+4. Run the SQL files in order, or run `01_setup_and_data_quality.ipynb` then `02_analysis.ipynb` to see results with charts
